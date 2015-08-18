@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Awds-dev] queue size ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/awds-dev/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:awds-dev%40lists.berlios.de?Subject=Re%3A%20%5BAwds-dev%5D%20queue%20size%20%3F&In-Reply-To=%3Cfca78b970907060558l4f1cd5f2ld61bb09ccf3597a5%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000004.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Awds-dev] queue size ?</H1>
+    <B>Patrick ANDRIEUX</B> 
+    <A HREF="mailto:awds-dev%40lists.berlios.de?Subject=Re%3A%20%5BAwds-dev%5D%20queue%20size%20%3F&In-Reply-To=%3Cfca78b970907060558l4f1cd5f2ld61bb09ccf3597a5%40mail.gmail.com%3E"
+       TITLE="[Awds-dev] queue size ?">patrick.andrieux at gmail.com
+       </A><BR>
+    <I>Mon Jul  6 14:58:28 CEST 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000004.html">[Awds-dev] queue size ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi list,
+
+I'm trying to understand how the sending part works in awds. I ran tests
+with iperf, and the queue size (in Sendqueue.cc) is always 1 or 2, even when
+I send at a very high rate.
+I'm wondering in which case this queue will be full ?
+
+Also, I noticed cpu usage increases with the sending rate.
+Do you think it could be mainly caused by the time to put data in the real
+network queue ? or is it something else?
+
+regards,
+Patrick.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/awds-dev/attachments/20090706/590df946/attachment.html">https://lists.berlios.de/pipermail/awds-dev/attachments/20090706/590df946/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000004.html">[Awds-dev] queue size ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#3">[ date ]</a>
+              <a href="thread.html#3">[ thread ]</a>
+              <a href="subject.html#3">[ subject ]</a>
+              <a href="author.html#3">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/awds-dev">More information about the Awds-dev
+mailing list</a><br>
+</body></html>

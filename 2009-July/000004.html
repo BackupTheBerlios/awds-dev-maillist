@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Awds-dev] queue size ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/awds-dev/2009-July/index.html" >
+   <LINK REL="made" HREF="mailto:awds-dev%40lists.berlios.de?Subject=Re%3A%20%5BAwds-dev%5D%20queue%20size%20%3F&In-Reply-To=%3C20090706132125.GF12818%40boerde.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000003.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Awds-dev] queue size ?</H1>
+    <B>Georg Lukas</B> 
+    <A HREF="mailto:awds-dev%40lists.berlios.de?Subject=Re%3A%20%5BAwds-dev%5D%20queue%20size%20%3F&In-Reply-To=%3C20090706132125.GF12818%40boerde.de%3E"
+       TITLE="[Awds-dev] queue size ?">georg at boerde.de
+       </A><BR>
+    <I>Mon Jul  6 15:21:25 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000003.html">[Awds-dev] queue size ?
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Patrick,
+
+* Patrick ANDRIEUX &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/awds-dev">patrick.andrieux at gmail.com</A>&gt; [2009-07-06 14:59]:
+&gt;<i> I'm trying to understand how the sending part works in awds. I ran tests
+</I>&gt;<i> with iperf, and the queue size (in Sendqueue.cc) is always 1 or 2, even when
+</I>&gt;<i> I send at a very high rate.
+</I>&gt;<i> I'm wondering in which case this queue will be full ?
+</I>
+If you are using TCP for bandwidth tests (which I assume with iperf),
+the sending node is automatically regulating the number of packets to
+send. It adapts to the available network capacity, so there is no
+congestion and no packets are dropped from the queues. A queue can be
+filled if you setup UDP transmission with a too high rate, or when many
+stations compete for the bandwidth in a network.
+
+&gt;<i> Also, I noticed cpu usage increases with the sending rate.
+</I>&gt;<i> Do you think it could be mainly caused by the time to put data in the real
+</I>&gt;<i> network queue ? or is it something else?
+</I>
+There are several aspects which have to be covered, mainly it is the
+forwarding and copying of packets from the userspace (app) to kernel
+space (tun/tap), back to userspace (awds) and finally to the kernel
+space (wifi driver). Of course, there is also other per-packet
+processing which takes up some time.
+
+There is a linux-kernel module in the AWDS source tree which can reduce
+the CPU overhead by off-loading some of the tasks into the kernel.
+
+Feel free to test it if you hit performance limits on your hardware
+plattform.
+
+
+Kind regards,
+
+Georg
+-- 
+||<i> <A HREF="http://op-co.de">http://op-co.de</A> ++  GCS/CM d-- s: a- C+++ UL+++ !P L+++ E--- W++  ++
+</I>||<i> gpg: 0x962FD2DE ||  N++ o? K- w---() O M V? PS+ PE-- Y+ PGP++ t+  ||
+</I>||<i> Ge0rG: euIRCnet ||  5 X R(+) tv b+(++) DI+++ D+ G e+++ h- r++ y?  ||
+</I>++ IRCnet OFTC OPN ||________________________________________________||
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/awds-dev/attachments/20090706/95cf63cb/attachment.pgp">https://lists.berlios.de/pipermail/awds-dev/attachments/20090706/95cf63cb/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000003.html">[Awds-dev] queue size ?
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#4">[ date ]</a>
+              <a href="thread.html#4">[ thread ]</a>
+              <a href="subject.html#4">[ subject ]</a>
+              <a href="author.html#4">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/awds-dev">More information about the Awds-dev
+mailing list</a><br>
+</body></html>

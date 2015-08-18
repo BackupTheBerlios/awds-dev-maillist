@@ -1,0 +1,42 @@
+From ian.latter at midnightcode.org  Sun Sep 27 09:02:52 2009
+From: ian.latter at midnightcode.org (Ian Latter)
+Date: Sun, 27 Sep 2009 17:02:52 +1000
+Subject: [Awds-dev] AWDS with ZigBee and BlueTooth
+Message-ID: <200909270602.n8R62qCi003814@singularity.tronunltd.com>
+
+Hello,
+
+
+  I found your project when I was looking for IP mesh 
+networking solutions - with ZigBee and BlueTooth in mind.  I 
+know your project is aimed at 802.11 ad-hoc networking, but 
+the principles seem to map well to 802.15.4 and 802.15.1 
+meshes too.
+
+  Like BlueTooth, ZigBee has a communications stack that 
+ends in a generic socket interface - or a serial port, with 
+another layer of software;
+    http://sourceforge.net/apps/trac/linux-zigbee
+
+  What I would like to do is deploy a homogeneous 
+environment of mobile Linux devices with both ZigBee (for 
+long range) and BlueTooth (a back-up short range) capability, 
+giving each device a layer-3/IP address on each network 
+(ZB/BT) and then let the nodes "stumble" into each other as 
+they pass by at the various radio levels.  Effectively, I would 
+like to replace the 802.11 hardware layer in your stack.
+
+  Has anyone (developer or user) looked at AWDS on 
+ZigBee or BlueTooth?  Any success or pointers?
+
+
+Thanks,
+
+
+
+--
+Ian Latter
+Late night coder ..
+http://midnightcode.org/
+
+

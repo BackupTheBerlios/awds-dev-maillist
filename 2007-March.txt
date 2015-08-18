@@ -1,0 +1,24 @@
+From aherms at ivs.cs.uni-magdeburg.de  Thu Mar  8 10:45:28 2007
+From: aherms at ivs.cs.uni-magdeburg.de (Andre Herms)
+Date: Thu, 8 Mar 2007 10:45:28 +0100
+Subject: [Awds-dev] Welcome to the AWDS developer mailing list
+Message-ID: <200703081045.32398.aherms@ivs.cs.uni-magdeburg.de>
+
+
+Hello everybody,
+
+This mailing list is intended for questions concerning the internals of AWDS. 
+
+Feel free to ask your question. 
+
+Gruss
+
+Andr? Herms
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 481 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/awds-dev/attachments/20070308/d2cb7609/attachment.pgp>
+

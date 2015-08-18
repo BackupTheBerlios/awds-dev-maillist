@@ -1,0 +1,79 @@
+From patrick.andrieux at gmail.com  Mon Jul  6 14:58:28 2009
+From: patrick.andrieux at gmail.com (Patrick ANDRIEUX)
+Date: Mon, 6 Jul 2009 14:58:28 +0200
+Subject: [Awds-dev] queue size ?
+Message-ID: <fca78b970907060558l4f1cd5f2ld61bb09ccf3597a5@mail.gmail.com>
+
+Hi list,
+
+I'm trying to understand how the sending part works in awds. I ran tests
+with iperf, and the queue size (in Sendqueue.cc) is always 1 or 2, even when
+I send at a very high rate.
+I'm wondering in which case this queue will be full ?
+
+Also, I noticed cpu usage increases with the sending rate.
+Do you think it could be mainly caused by the time to put data in the real
+network queue ? or is it something else?
+
+regards,
+Patrick.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/awds-dev/attachments/20090706/590df946/attachment.html>
+
+From georg at boerde.de  Mon Jul  6 15:21:25 2009
+From: georg at boerde.de (Georg Lukas)
+Date: Mon, 6 Jul 2009 15:21:25 +0200
+Subject: [Awds-dev] queue size ?
+In-Reply-To: <fca78b970907060558l4f1cd5f2ld61bb09ccf3597a5@mail.gmail.com>
+References: <fca78b970907060558l4f1cd5f2ld61bb09ccf3597a5@mail.gmail.com>
+Message-ID: <20090706132125.GF12818@boerde.de>
+
+Hi Patrick,
+
+* Patrick ANDRIEUX <patrick.andrieux at gmail.com> [2009-07-06 14:59]:
+> I'm trying to understand how the sending part works in awds. I ran tests
+> with iperf, and the queue size (in Sendqueue.cc) is always 1 or 2, even when
+> I send at a very high rate.
+> I'm wondering in which case this queue will be full ?
+
+If you are using TCP for bandwidth tests (which I assume with iperf),
+the sending node is automatically regulating the number of packets to
+send. It adapts to the available network capacity, so there is no
+congestion and no packets are dropped from the queues. A queue can be
+filled if you setup UDP transmission with a too high rate, or when many
+stations compete for the bandwidth in a network.
+
+> Also, I noticed cpu usage increases with the sending rate.
+> Do you think it could be mainly caused by the time to put data in the real
+> network queue ? or is it something else?
+
+There are several aspects which have to be covered, mainly it is the
+forwarding and copying of packets from the userspace (app) to kernel
+space (tun/tap), back to userspace (awds) and finally to the kernel
+space (wifi driver). Of course, there is also other per-packet
+processing which takes up some time.
+
+There is a linux-kernel module in the AWDS source tree which can reduce
+the CPU overhead by off-loading some of the tasks into the kernel.
+
+Feel free to test it if you hit performance limits on your hardware
+plattform.
+
+
+Kind regards,
+
+Georg
+-- 
+|| http://op-co.de ++  GCS/CM d-- s: a- C+++ UL+++ !P L+++ E--- W++  ++
+|| gpg: 0x962FD2DE ||  N++ o? K- w---() O M V? PS+ PE-- Y+ PGP++ t+  ||
+|| Ge0rG: euIRCnet ||  5 X R(+) tv b+(++) DI+++ D+ G e+++ h- r++ y?  ||
+++ IRCnet OFTC OPN ||________________________________________________||
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 189 bytes
+Desc: Digital signature
+URL: <https://lists.berlios.de/pipermail/awds-dev/attachments/20090706/95cf63cb/attachment.pgp>
+

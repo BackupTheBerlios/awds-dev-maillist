@@ -1,0 +1,24 @@
+From stefano1981 at gmail.com  Wed May 14 16:53:03 2008
+From: stefano1981 at gmail.com (Stefano Maurina)
+Date: Wed, 14 May 2008 16:53:03 +0200
+Subject: [Awds-dev] Interfaces
+Message-ID: <c60ab7b20805140753l494e6e20p6dbb3e6dde62dfb0@mail.gmail.com>
+
+I'd like to know how  I can do to obtain the interface on which I received a
+Beacon Packet. (In case we have more than one interface).
+I tried to add something to recv_packet like (h == base->recvHandle) but I
+get errors because it's a static member function.
+
+It could be the NodeId of the interface or something else.
+
+Thank you
+
+Stefano
+
+-- 
+Before printing this email, make sure it is really necessary. The
+environment is in our hands.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/awds-dev/attachments/20080514/2242c02f/attachment.html>
+

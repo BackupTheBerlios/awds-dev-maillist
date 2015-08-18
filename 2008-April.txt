@@ -1,0 +1,17 @@
+From stefano1981 at gmail.com  Thu Apr  3 15:31:00 2008
+From: stefano1981 at gmail.com (Stefano Maurina)
+Date: Thu, 3 Apr 2008 15:31:00 +0200
+Subject: [Awds-dev] Ad Hoc Mode
+Message-ID: <c60ab7b20804030631m66244cdaq72182cec63d0c3f7@mail.gmail.com>
+
+I would like to know if to run the protocol AWDS the wifi cards have to be
+set in adhoc or infrastructure mode.
+
+Thank you
+-- 
+Before printing this email, make sure it is really necessary. The
+environment is in our hands.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/awds-dev/attachments/20080403/c332e3c6/attachment.html>
+
